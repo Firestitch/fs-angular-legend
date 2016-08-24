@@ -1,0 +1,28 @@
+fs-legend {
+	height: 20px;
+	line-height: 20px;
+}
+
+fs-legend .fs-legend-item {
+	float: left;
+	padding: 3px 0;
+	padding-right: 18px;
+}
+
+fs-legend .fs-legend-color {
+	width: 20px;
+	height: 20px;
+	border-radius: 2px;
+	display: block;
+	float: left;
+}
+
+
+fs-legend .fs-legend-label {
+	margin-left: 3px;
+	font-size: smaller;
+}
+
+fs-legend .fs-legend-item:last-child {
+	margin-right: 0;
+}

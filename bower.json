@@ -1,0 +1,17 @@
+{
+  "name": "fs-angular-legend",
+  "description": "",
+  "main": [
+    "dist/legend.js",
+    "dist/legend.css"
+  ],
+  "authors": [
+    "Firestitch Inc."
+  ],
+  "license": "MIT",
+  "ignore": [
+    "src",
+    ".gitignore"
+  ],
+  "private": false
+}
