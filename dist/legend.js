@@ -3,7 +3,7 @@
     'use strict';
 
     angular.module('fs-angular-legend',[])
-    .directive('fsLegend', function($location) {
+    .directive('fsLegend', function($location, $timeout) {
         return {
             templateUrl: 'views/directives/legend.html',
             restrict: 'E',
@@ -13,24 +13,27 @@
             },
 
             link: function($scope, element, attrs, ctrl, $transclude) {
+                
                 $scope.items = [];
 
+                $timeout(function(){
+                    
+                    var items = element[0].querySelectorAll('fs-legend-item');
 
-                var items = element[0].querySelectorAll('fs-legend-item');
+                    angular.forEach(items,function(item) {
 
-                angular.forEach(items,function(item) {
+                        var item = angular.element(item);
+                        var styles = { backgroundColor: item.attr('fs-color') };
 
-                    var item = angular.element(item);
-                    var styles = { backgroundColor: item.attr('fs-color') };
-
-                    item
-                        .addClass('fs-legend-item')
-                        .append(angular.element('<span>')
-                                    .addClass('fs-legend-color')
-                                    .css(styles))
-                        .append(angular.element('<span>')
-                                    .addClass('fs-legend-label')
-                                    .append(item.attr('fs-label')));
+                        item
+                            .addClass('fs-legend-item')
+                            .append(angular.element('<span>')
+                                        .addClass('fs-legend-color')
+                                        .css(styles))
+                            .append(angular.element('<span>')
+                                        .addClass('fs-legend-label')
+                                        .append(item.attr('fs-label')));
+                    });
                 });
 
                 $scope.redirect = function(path) {
